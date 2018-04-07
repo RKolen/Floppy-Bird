@@ -34,5 +34,6 @@ public class Floppy : MonoBehaviour {
     {
         isDead = true;
         anim.SetTrigger("Dead");
+        GameControl.instance.FloppyDied();
     }
 }
