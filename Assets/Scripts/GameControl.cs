@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
 
+    public Text scoreText;
     public static GameControl instance;
     public GameObject gameOverText;
     public bool gameOver = false;
     public float scrollSpeed = -1.5f;
+
+    private int score = 0;
 
 	// Use this for initialization
 	void Awake ()
@@ -31,6 +35,16 @@ public class GameControl : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
+    public void FloppyScored()
+    {
+        if (gameOver)
+        {
+            return;
+        }
+        score++;
+        scoreText.text = "Score: " + score.ToString();
+    }
+
 
     public void FloppyDied()
     {
