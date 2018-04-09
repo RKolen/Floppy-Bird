@@ -34,7 +34,12 @@ public class GameControl : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-	}
+        if (gameOver == true && Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+
+    }
     public void FloppyScored()
     {
         if (gameOver)
@@ -45,6 +50,11 @@ public class GameControl : MonoBehaviour {
         scoreText.text = "Score: " + score.ToString();
     }
 
+    public void QuitGame()
+    {
+        Debug.Log("quit"); 
+            Application.Quit();    
+    }
 
     public void FloppyDied()
     {
